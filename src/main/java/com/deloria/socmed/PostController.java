@@ -59,8 +59,8 @@ public class PostController {
             existing.setTimestamp(post.getTimestamp());
         }
 
-        postRepository.save(existing);
-        return ResponseEntity.ok("Post with id " + id + " updated.");
+        Post saved = postRepository.save(existing);
+        return ResponseEntity.ok(saved); // Return the updated Post object as JSON
     }
 
     @DeleteMapping("/{id}")
